@@ -1,16 +1,33 @@
-import {Selector} from 'testcafe';
+import {Selector, t} from 'testcafe'
+import mainPage from '../pages/Main.element.js'
 
 class Login{
     constructor(){
-        this.txtFldUsername=Selector('#email'); //input o field
-        this.txtFldPassword=Selector('#password'); //input o field
-        this.btnLogin=Selector("button").withText("Log in"); //reduce
-        this.lblError=Selector('div.error_block:nth-child(6) div.error_msg > span:nth-child(2)'); //reduce
+        this.inputUser      =Selector('#email')
+        this.inputPassword  =Selector('#password')
+        this.buttonLogin    =Selector('button').withText("Log in")
+        this.labelError     =Selector('span').with("")
     }
+
+    async loginForm(username,password){
+        await t
+            .click      (mainPage.loginLink) 
+            .typeText   (this.inputUser,username) 
+            .typeText   (this.inputPassword,password) 
+            .click      (this.buttonLogin)
+    }
+
+    async loginFormWithoutPassword(username){
+        await t
+            .click      (mainPage.loginLink) 
+            .typeText   (this.inputUser,username) 
+            .click      (this.buttonLogin)
+    }
+
 }
 
 //objetos
 
-export default new Login();
+export default new Login()
 
 // faker lib

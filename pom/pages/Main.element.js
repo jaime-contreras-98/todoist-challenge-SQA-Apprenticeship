@@ -1,9 +1,9 @@
-import {Selector} from 'testcafe';
+import {Selector} from 'testcafe'
 
 class MainPage{
     constructor(){
-        this.loginLink=Selector("a").withText("Log in");
+        this.loginLink=Selector("a").withText("Log in")
     }
 }
 
-export default new MainPage();
+export default new MainPage()
