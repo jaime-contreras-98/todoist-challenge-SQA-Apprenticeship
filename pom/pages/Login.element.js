@@ -3,10 +3,10 @@ import mainPage from '../pages/Main.element.js'
 
 class Login{
     constructor(){
-        this.inputUser      =Selector('#email')
-        this.inputPassword  =Selector('#password')
-        this.buttonLogin    =Selector('button').withText("Log in")
-        this.labelError     =Selector('span').with("")
+        this.inputUser      = Selector('#email')
+        this.inputPassword  = Selector('#password')
+        this.buttonLogin    = Selector('button').withText("Log in")
+        this.labelError     = Selector('span').with("")
     }
 
     async loginForm(username,password){
@@ -25,8 +25,6 @@ class Login{
     }
 
 }
-
-//objetos
 
 export default new Login()
 

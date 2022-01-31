@@ -24,3 +24,8 @@ export const ERROR_MESSAGES = {
     WRONG_PASSWORD: "Wrong email or password.",
     BLANK_INPUTS:   "Blank password."
 }
+
+export const TASKS = {
+    TITLE:       "Title test",
+    DESCRIPTION: "Description test"
+}
