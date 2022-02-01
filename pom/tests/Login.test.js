@@ -3,8 +3,6 @@ import {CREDENTIALS, ERROR_MESSAGES , MESSAGES, URL} from '../data/constants.js'
 import loginPage from '../pages/Login.element.js'
 import todayPage from '../pages/Today.elements.js'
 
-const getLocation   = ClientFunction(() => document.location.href)
-
 fixture ('Automation challenge with Testcafe')
     .page `${URL.BASE_URL}`
     .beforeEach(async t=>{

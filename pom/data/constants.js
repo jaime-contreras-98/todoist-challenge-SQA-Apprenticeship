@@ -7,7 +7,7 @@ export const URL = {
 export const CREDENTIALS = {
     STANDARD_USER : {
         REAL_USERNAME: process.env.FRONT_LOGIN_USER,
-        REAL_PASSWORD: process.env.FRONT_LOGIN_PASSWORD,
+        REAL_PASSWORD: process.env.FRONT_LOGIN_PASSWORD
     },
     FAKE_USER : {
         FAKE_USERNAME: process.env.FRONT_LOGIN_FAKE_USER,
@@ -25,7 +25,13 @@ export const ERROR_MESSAGES = {
     BLANK_INPUTS:   "Blank password."
 }
 
-export const TASKS = {
-    TITLE:       "Title test",
-    DESCRIPTION: "Description test"
+export const TODAY = {
+    TASKS:{
+        TITLE:      "Title test",
+        DESCRIPTION:"Description test"
+    },
+    PROJECTS:{
+        TITLE:      "Project test"
+    }
 }
+
