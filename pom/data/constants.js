@@ -27,8 +27,8 @@ export const ERROR_MESSAGES = {
 
 export const TODAY = {
     TASKS:{
-        TITLE:      "Title test: ", //dinamico
-        DESCRIPTION:"Description test: " //dinamico
+        TITLE:      "Title test", 
+        DESCRIPTION:"Description test" 
     },
     PROJECTS:{
         TITLE:      "Project test"

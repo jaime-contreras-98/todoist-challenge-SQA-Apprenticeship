@@ -1,10 +1,29 @@
 import {Selector, t} from 'testcafe'
 
 class Today{
+
     constructor(){
+        let date=new Date()
+        
+        function funcion(date) {
+            var d = new Date(date),
+            
+            month = '' + (d.getMonth() + 1),
+            day = '' + d.getDate(),
+            year = d.getFullYear();
+    
+            if (month.length < 2){
+                month = '0' + month;   
+            }
+            if (day.length < 2){
+                day = '0' + day;
+            }
+            return [year, month, day].join('-');
+        }
+
         this.todayLabel             = Selector('span').withText("Today")
-        //this.titleTaskLabel     = Selector('div').withAttribute('class',"markdown_content task_content")
-        //this.descrTaskLabel     = Selector('div').withAttribute('class',"markdown_content task_description")
+        this.taskDateLabel          = Selector('a').withAttribute('href',"/app/search/"+funcion(date))
+        //this.taskDate               = Selector('input').withAttribute('value',`${date}`)
         
         this.newTaskTitleInput      = Selector('div').withAttribute('class',"notranslate public-DraftEditor-content")
         this.newTaskDescrInput      = Selector('textarea').withAttribute('class',"task_editor__description_field no-focus-marker")
@@ -46,7 +65,7 @@ class Today{
             .typeText   (this.newProjectInput,title)
             .click      (this.newProjectColorDropdown)
 
-            for(let i=0;i <= Math.floor(Math.random() * 20);i++){
+            for(let i=0;i <= Math.floor((Math.random() * 100) % 20);i++){ 
                 await t.pressKey('down')
             }
             await t.pressKey('enter')
@@ -56,7 +75,7 @@ class Today{
     }
 
     async deleteProjects(){
-
+       
     }
 
 }
