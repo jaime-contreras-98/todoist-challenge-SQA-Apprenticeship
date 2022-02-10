@@ -1,11 +1,12 @@
 import {Selector, t} from 'testcafe'
 
-class Login{
+class LoginPage{
+    
     constructor(){
         this.inputUser      = Selector('#email')
         this.inputPassword  = Selector('#password')
         this.buttonLogin    = Selector('button').withText("Log in")
-        this.labelError     = Selector('div').withAttribute('class',"error_msg")
+        this.labelError     = Selector('.error_msg')
     }
 
     async loginForm(username,password){
@@ -23,6 +24,6 @@ class Login{
 
 }
 
-export default new Login()
+export default new LoginPage()
 
 // faker lib

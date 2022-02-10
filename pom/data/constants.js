@@ -26,12 +26,11 @@ export const ERROR_MESSAGES = {
 }
 
 export const TODAY = {
-    TASKS:{
-        TITLE:      "Title test", 
-        DESCRIPTION:"Description test" 
+    TASKS : { 
+        TITLE:      "Title test ", 
+        DESCRIPTION:"Description test " 
     },
-    PROJECTS:{
-        TITLE:      "Project test"
+    PROJECTS : {
+        TITLE:      "Project test "
     }
 }
-

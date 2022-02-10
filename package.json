@@ -4,7 +4,7 @@
   "description": "Wizeline front-end and back-end automation challenge for mentees.",
   "main": "index.js",
   "scripts": {
-    "test1": "testcafe chrome pom/tests/Login.test.js --debug-mode", 
+    "test1": "testcafe chrome pom/tests/Login.test.js --debug-mode",
     "test2": "testcafe chrome pom/tests/Notes.test.js --debug-mode"
   },
   "author": "Jaime Contreras",
