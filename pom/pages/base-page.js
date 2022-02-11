@@ -3,7 +3,7 @@ import {Selector} from 'testcafe'
 class BasePage{
 
     constructor(){
-        this.todayLink      = Selector(".item_content").withText("Today")
+        this.inboxLink      = Selector(".item_content").withText("Inbox")
     }
 }
 
