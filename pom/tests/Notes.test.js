@@ -1,5 +1,5 @@
 import {Selector,ClientFunction} from 'testcafe'
-import {CREDENTIALS,TODAY,URL} from '../data/constants.js'
+import {CREDENTIALS,TODAY,URL,DATES} from '../data/constants.js'
 import nanoid from 'nanoid'
 import mainPage from '../pages/main-page.js'
 import loginPage from '../pages/login-page.js'
@@ -13,50 +13,57 @@ fixture ('Automation challenge with TestCafe')
         await t.maximizeWindow()
     })
 
+    .afterEach(async t=>{
+        await t.pressKey('esc')
+        await todayPage.deleteTasks()
+        await todayPage.deleteProjects()
+    })
+
 //3
 test.skip('As a user I want to create a new task for today as due date',async t =>{
-    //let todayDate=new Date()
-    //let objeto=new todayPage()
-    //let fecha=todayPage.deleteProjects(todayDate)
-    //const element = await Selector('div').withAttribute('class','markdown_content task_content')
+    const idTitle       = nanoid()
+    const idDescription = nanoid()
 
     await t.click(mainPage.loginLink)
     await loginPage.loginForm(CREDENTIALS.STANDARD_USER.REAL_USERNAME,CREDENTIALS.STANDARD_USER.REAL_PASSWORD)
     await t.click(basePage.inboxLink)
-    await todayPage.createTaskToday((TODAY.TASKS.TITLE) + nanoid(),
-                                    (TODAY.TASKS.DESCRIPTION) + nanoid()) 
-    await t.wait(1500)
+    await todayPage.createTaskToday((TODAY.TASKS.TITLE) + idTitle,(TODAY.TASKS.DESCRIPTION) + idDescription)
+    await t.click(todayPage.tasksListElement.withText(idTitle)) 
 
-    //today
-    await t.expect(todayPage.taskTitleLabel.innerText).eql("123")
-    //await t.expect(todayPage.taskTitleLabel.innerText).contains("Today")
-    //await t.expect(todayPage.taskDateLabel.innerText).contains((todayPage.deleteProjects(fecha))) //FECHA Y NOMBRE DE LA TASK
+    await t.expect(todayPage.dateTaskTodayLabel.innerText).eql(DATES.TODAY)
 })
 
 //4
-test('As a user I want to create a new task for tomorrow as due date',async t =>{
+test.skip('As a user I want to create a new task for tomorrow as due date',async t =>{
+    const idTitle       = nanoid()
+    const idDescription = nanoid()
+    
     await t.click(mainPage.loginLink)
     await loginPage.loginForm(CREDENTIALS.STANDARD_USER.REAL_USERNAME,CREDENTIALS.STANDARD_USER.REAL_PASSWORD)
     await t.click(basePage.inboxLink)
-    await todayPage.createTaskTomorrow((TODAY.TASKS.TITLE) + nanoid(),
-                                       (TODAY.TASKS.DESCRIPTION) + nanoid())
-    await t.wait(1500)
-    //FECHA MA;ANA 
+    await todayPage.createTaskTomorrow((TODAY.TASKS.TITLE) + idTitle,(TODAY.TASKS.DESCRIPTION) + idDescription)
+    await t.click(todayPage.tasksListElement.withText(idTitle))
+
+    await t.expect(todayPage.dateTaskTomorrowLabel.innerText).eql(DATES.TOMORROW)
 })
 
 //5
-test.skip('As a user I want to create 10 tasks in a row for today as due date',async t=>{  //guardar en arrays y buscar uno por uno
+test('As a user I want to create 10 tasks in a row for today as due date',async t=>{  //guardar en arrays y buscar uno por uno
     await t.click(mainPage.loginLink)
     await loginPage.loginForm(CREDENTIALS.STANDARD_USER.REAL_USERNAME,CREDENTIALS.STANDARD_USER.REAL_PASSWORD)
     await t.click(basePage.inboxLink)
     
     for (let index = 1; index <=10; index++) {
-        await todayPage.createTaskToday((TODAY.TASKS.TITLE)         + index + ": " + nanoid(),
-                                        (TODAY.TASKS.DESCRIPTION)   + index + ": " + nanoid())
-    }
-    await t.wait(1500)
+        const idTitle       = nanoid()
+        const idDescription = nanoid()
 
-    
+        await todayPage.createTaskToday((TODAY.TASKS.TITLE) + index + ": " + idTitle,(TODAY.TASKS.DESCRIPTION) + index + ": " + idDescription)
+        await t.click(todayPage.tasksListElement.withText(idTitle))
+
+        await t.wait(1500)
+        await t.expect(todayPage.dateTaskTodayLabel.innerText).eql(DATES.TODAY)
+        await t.pressKey('esc')   
+    }
 })
 
 //6
@@ -64,10 +71,9 @@ test.skip('As a user I want to create a proyect using a special color, adding it
     await t.click(mainPage.loginLink)
     await loginPage.loginForm(CREDENTIALS.STANDARD_USER.REAL_USERNAME,CREDENTIALS.STANDARD_USER.REAL_PASSWORD)
     await t.click(basePage.inboxLink)
-    await todayPage.createProject((TODAY.PROJECTS.TITLE) + nanoid())
-    await t.wait(1500)
-
-
+    await todayPage.createProject((TODAY.PROJECTS.TITLE) + idTitle)
+    //const con color de proyecto utilizando getAttribute()
+    await t.expect(todayPage.newFavProjectLabel.innerText).contains(idTitle)
 })
 
 //7
@@ -76,7 +82,6 @@ test.skip('As a user I want to delete all my tasks I created previously',async t
     await loginPage.loginForm(CREDENTIALS.STANDARD_USER.REAL_USERNAME,CREDENTIALS.STANDARD_USER.REAL_PASSWORD)
     await t.click(basePage.inboxLink)
     await todayPage.deleteTasks()
-    await t.wait(1500)
 
-    await t.expect(todayPage.emptyNoTasksLabel.exists).ok()
+    await t.expect(todayPage.newFavProjectLabel.exists).ok()
 })

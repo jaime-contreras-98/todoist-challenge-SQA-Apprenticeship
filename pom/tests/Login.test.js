@@ -1,4 +1,4 @@
-import {CREDENTIALS, ERROR_MESSAGES , MESSAGES, URL} from '../data/constants.js'
+import {CREDENTIALS, ERROR_MESSAGES , DATES, URL} from '../data/constants.js'
 import mainPage from '../pages/main-page.js'
 import loginPage from '../pages/login-page.js'
 import todayPage from '../pages/today-page.js'
@@ -15,7 +15,7 @@ test('As a user I want to log in using my credentials',async t => {
     await t.click(mainPage.loginLink)
     await loginPage.loginForm(CREDENTIALS.STANDARD_USER.REAL_USERNAME,CREDENTIALS.STANDARD_USER.REAL_PASSWORD)
 
-    await t.expect(todayPage.todayLabel.innerText).contains(MESSAGES.SUCCESS_LOGIN)
+    await t.expect(todayPage.todayLabel.innerText).contains(DATES.TODAY)
 }) 
 
 //2.1

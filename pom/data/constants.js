@@ -15,10 +15,6 @@ export const CREDENTIALS = {
     }
 }
 
-export const MESSAGES = {
-    SUCCESS_LOGIN:  "Today"
-}
-
 export const ERROR_MESSAGES = {
     WRONG_USERNAME: "Invalid email address.",
     WRONG_PASSWORD: "Wrong email or password.",
@@ -33,4 +29,9 @@ export const TODAY = {
     PROJECTS : {
         TITLE:      "Project test "
     }
+}
+
+export const DATES = {
+    TODAY:          "Today",
+    TOMORROW:       "Tomorrow"
 }
