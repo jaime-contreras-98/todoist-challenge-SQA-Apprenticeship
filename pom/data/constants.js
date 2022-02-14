@@ -1,8 +1,9 @@
-import 'dotenv/config'
+/* eslint-disable no-undef */
+import "dotenv/config";
 
 export const URL = {
     BASE_URL: "https://todoist.com/"
-}
+};
 
 export const CREDENTIALS = {
     STANDARD_USER : {
@@ -13,13 +14,13 @@ export const CREDENTIALS = {
         FAKE_USERNAME: process.env.FRONT_LOGIN_FAKE_USER,
         FAKE_PASSWORD: process.env.FRONT_LOGIN_FAKE_PASSWORD
     }
-}
+};
 
 export const ERROR_MESSAGES = {
     WRONG_USERNAME: "Invalid email address.",
     WRONG_PASSWORD: "Wrong email or password.",
     BLANK_INPUTS:   "Blank password."
-}
+};
 
 export const TODAY = {
     TASKS : { 
@@ -29,9 +30,9 @@ export const TODAY = {
     PROJECTS : {
         TITLE:      "Project test "
     }
-}
+};
 
 export const DATES = {
     TODAY:          "Today",
     TOMORROW:       "Tomorrow"
-}
+};

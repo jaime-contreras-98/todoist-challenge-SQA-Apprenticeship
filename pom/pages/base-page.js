@@ -1,10 +1,10 @@
-import {Selector} from 'testcafe'
+import {Selector} from "testcafe";
 
 class BasePage{
 
     constructor(){
-        this.inboxLink      = Selector(".item_content").withText("Inbox")
+        this.inboxLink      = Selector(".item_content").withText("Inbox");
     }
 }
 
-export default new BasePage()
+export default new BasePage();

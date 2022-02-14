@@ -4,13 +4,19 @@
   "description": "Wizeline front-end and back-end automation challenge for mentees.",
   "main": "index.js",
   "scripts": {
-    "test1": "testcafe chrome pom/tests/Login.test.js --debug-mode",
-    "test2": "testcafe chrome pom/tests/Notes.test.js --debug-mode"
+    "loginTests": "testcafe chrome pom/tests/login.test.js --reporter html:tests-reports/login-tests-results.html",
+    "notesTests": "testcafe chrome pom/tests/notes.test.js --reporter html:tests-reports/notes-tests-results.html",
+    "loginTestsHeadless": "testcafe firefox:headless,chrome:headless pom/tests/login.test.js --reporter html:tests-reports/login-headless-tests-results.html",
+    "smokeTests": "testcafe chrome pom/tests/ --test-grep 'smoke' --reporter html:tests-reports/smoke-tests-results.html"
   },
   "author": "Jaime Contreras",
   "license": "ISC",
   "dependencies": {
     "dotenv": "^14.3.2",
-    "testcafe": "^1.18.2"
+    "testcafe": "^1.18.2",
+    "testcafe-reporter-html": "^1.4.6"
+  },
+  "devDependencies": {
+    "eslint": "^8.9.0"
   }
 }
