@@ -63,7 +63,7 @@ export const ROLES = Role(`${URL.BASE_URL}`,async t=> {
         await t.typeText   (loginPage.inputUser,CREDENTIALS.STANDARD_USER.REAL_USERNAME); 
         break;
     default:
-        console.log("Wrong option!");
+        console.log("Wrong option");
         break;
     }    
     await t
