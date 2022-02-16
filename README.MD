@@ -2,10 +2,10 @@ Front-end automation challenge for Wizeline mentees. This project is for automat
 
 Test cases automated:
 
-Login
-Add/delete tasks
-Add/delete projects
-Before running any of those suites mentiones before, you shall fill the .env file with your credentials and fake credentials
+Login.
+Add/delete tasks.
+Add/delete projects.
+Before running any of those suites mentiones before, you shall fill the .env file with your credentials and fake credentials.
 
 Now, once you filled the .env text fields, run the following commands:
 
