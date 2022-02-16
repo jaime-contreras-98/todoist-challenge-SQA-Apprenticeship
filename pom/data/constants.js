@@ -1,5 +1,8 @@
 /* eslint-disable no-undef */
 import "dotenv/config";
+import {Role} from "testcafe";
+import mainPage from "../pages/main-page.js";
+import loginPage from "../pages/login-page.js";
 
 export const URL = {
     BASE_URL: "https://todoist.com/"
@@ -36,3 +39,34 @@ export const DATES = {
     TODAY:          "Today",
     TOMORROW:       "Tomorrow"
 };
+
+export const ROLES = Role(`${URL.BASE_URL}`,async t=> { 
+    await t.click      (mainPage.loginLink);
+
+    switch(a){
+    case 1:
+        await t
+            .typeText   (loginPage.inputUser,CREDENTIALS.STANDARD_USER.REAL_USERNAME)
+            .typeText   (loginPage.inputPassword,CREDENTIALS.STANDARD_USER.REAL_PASSWORD);
+        break;
+    case 2:
+        await t
+            .typeText   (loginPage.inputUser,CREDENTIALS.FAKE_USER.FAKE_USERNAME)
+            .typeText   (loginPage.inputPassword,CREDENTIALS.STANDARD_USER.REAL_PASSWORD);
+        break;
+    case 3:
+        await t
+            .typeText   (loginPage.inputUser,CREDENTIALS.STANDARD_USER.REAL_USERNAME) 
+            .typeText   (loginPage.inputUser,CREDENTIALS.FAKE_USER.FAKE_PASSWORD);
+        break;
+    case 4:
+        await t.typeText   (loginPage.inputUser,CREDENTIALS.STANDARD_USER.REAL_USERNAME); 
+        break;
+    default:
+        console.log("Wrong option!");
+        break;
+    }    
+    await t
+        .click      (loginPage.buttonLogin);
+});
+    

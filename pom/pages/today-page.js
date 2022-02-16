@@ -27,26 +27,27 @@ class TodayPage{
         this.confirmDeleteButton    = Selector(".reactist_button").withText("Delete");   
     }
 
-    async createTaskToday(title,description){
+    async createTask(title,description,date){ 
         await t
             .click      (this.newTaskButton)
             .typeText   (this.newTaskTitleInput,title)
             .typeText   (this.newTaskDescrInput,description)
-            .click      (this.dateTaskButton)
-            .click      (this.todayTaskButton)
-            .click      (this.newTaskButton)
-            .wait       (2000);
-    }
+            .click      (this.dateTaskButton);
 
-    async createTaskTomorrow(title,description){
-        await t 
+        switch(date){
+        case 1:
+            await t.click(this.todayTaskButton);
+            break;
+        case 2:
+            await t.click(this.tomomorrowTaskButton);
+            break;
+        default:
+            console.log("Please choose a valid date.");
+        }
+        
+        await t
             .click      (this.newTaskButton)
-            .typeText   (this.newTaskTitleInput,title)
-            .typeText   (this.newTaskDescrInput,description)
-            .click      (this.dateTaskButton)
-            .click      (this.tomomorrowTaskButton)
-            .click      (this.newTaskButton)
-            .wait       (2000);
+            .wait       (1000);
     }
 
     async createProject(title){
@@ -72,7 +73,7 @@ class TodayPage{
                 .rightClick (this.tasksListElement)
                 .click      (this.deleteTaskButton)
                 .click      (this.confirmDeleteButton)
-                .wait(2000);
+                .wait(1500);
         }
     }
 
@@ -82,7 +83,7 @@ class TodayPage{
                 .rightClick (this.projectListElement)
                 .click      (this.deleteProjectButton)
                 .click      (this.confirmDeleteButton)
-                .wait(2000);
+                .wait(1500);
         }
     }
 }

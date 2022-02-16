@@ -73,10 +73,10 @@
       <div class="client-logo" style="padding:15px"></div>
       <div class="bg-primary" style="padding:15px;box-shadow: 6px 6px 6px 6px #00000033;border-radius: 10px;">
         <h3>Summary</h3><br>
-        <p class="lead">Start Time: Mon Feb 14 2022 09:30:04 GMT-0700 (Mexican Pacific Standard Time)</p>
-        <p class="lead">Browsers: Chrome 98.0.4758.80 / macOS 10.15.7</p>
-        <p class="lead">Duration: 45s</p>
-        <p class="lead">Tests Failed: 2 out of 4</p>
+        <p class="lead">Start Time: Mon Feb 14 2022 01:16:42 GMT-0700 (Mexican Pacific Standard Time)</p>
+        <p class="lead">Browsers: Firefox 97.0 / macOS 10.15, Chrome 98.0.4758.80 / macOS 10.15.7</p>
+        <p class="lead">Duration: 46s</p>
+        <p class="lead">Tests Failed: 0 out of 4</p>
         <p class="lead">Tests Skipped: 0</p>
       </div><br>
       <table class="table sortable" style="padding:15px;box-shadow: 6px 6px 6px 6px #00000033;border-radius: 10px;">
@@ -95,32 +95,32 @@
   <td>1</td>
   <td>Login with TestCafe on Todoist webpage</td>
   <td>As a user I want to log in using my credentials --tags {smoke}</td>
-  <td>Chrome 98.0.4758.80 / macOS 10.15.7</td>
-  <td>21s</td>
+  <td>Firefox 97.0 / macOS 10.15, Chrome 98.0.4758.80 / macOS 10.15.7</td>
+  <td>16s</td>
   <td>passed</td>
  </tr>
- <tr class="danger">
+ <tr class="success">
   <td>2</td>
   <td>Login with TestCafe on Todoist webpage</td>
   <td>As a user I want to try to log in using an invalid email --tags {regression}</td>
-  <td>Chrome 98.0.4758.80 / macOS 10.15.7</td>
-  <td>7s</td>
-  <td><a href="#test-2">failed</a></td>
+  <td>Firefox 97.0 / macOS 10.15, Chrome 98.0.4758.80 / macOS 10.15.7</td>
+  <td>12s</td>
+  <td>passed</td>
  </tr>
- <tr class="danger">
+ <tr class="success">
   <td>3</td>
   <td>Login with TestCafe on Todoist webpage</td>
   <td>As a user I want to try to log in using an invalid password --tags {regression}</td>
-  <td>Chrome 98.0.4758.80 / macOS 10.15.7</td>
-  <td>8s</td>
-  <td><a href="#test-3">failed</a></td>
+  <td>Firefox 97.0 / macOS 10.15, Chrome 98.0.4758.80 / macOS 10.15.7</td>
+  <td>14s</td>
+  <td>passed</td>
  </tr>
  <tr class="success">
   <td>4</td>
   <td>Login with TestCafe on Todoist webpage</td>
   <td>As a user I want to try to log in using my email without typing my password --tags {regression}</td>
-  <td>Chrome 98.0.4758.80 / macOS 10.15.7</td>
-  <td>8s</td>
+  <td>Firefox 97.0 / macOS 10.15, Chrome 98.0.4758.80 / macOS 10.15.7</td>
+  <td>15s</td>
   <td>passed</td>
  </tr>
 
@@ -138,45 +138,7 @@
       </table>
       <br>
       <h3>Error Details</h3>
-       <h4 id="test-2" style="color: red;">2. Login with TestCafe on Todoist webpage - As a user I want to try to log in using an invalid email --tags {regression}</h4>
- <pre style="padding:15px;box-shadow: 6px 6px 6px 6px #00000033;border-radius: 10px;">TypeError: _loginPage.default.loginForm is not a function
-
-Browser: Chrome 98.0.4758.80 / macOS 10.15.7
-
-   19 |
-   20 |//2.1
-   21 |test(&quot;As a user I want to try to log in using an invalid email --tags &#123regression&#125&quot;,async t =&gt; { 
-   22 |    //await t.useRole(ROLES.FAKE_EMAIL);
-   23 |    await t.click(mainPage.loginLink);
- &gt; 24 |    await loginPage.loginForm(CREDENTIALS.FAKE_USER.FAKE_USERNAME,CREDENTIALS.STANDARD_USER.REAL_PASSWORD);
-   25 |    
-   26 |    await t.expect(loginPage.labelError.innerText).eql(ERROR_MESSAGES.WRONG_USERNAME);
-   27 |});
-   28 |
-   29 |//2.2
-
-   at &lt;anonymous&gt; (/Users/jaime.contreras/Documents/Proyectos/Challenge Apprenticeship/Challenge-todoist-automated-front/pom/tests/login.test.js:24:21)
-   at asyncGeneratorStep (/Users/jaime.contreras/Documents/Proyectos/Challenge Apprenticeship/Challenge-todoist-automated-front/pom/tests/login.test.js:5:269)
-   at _next (/Users/jaime.contreras/Documents/Proyectos/Challenge Apprenticeship/Challenge-todoist-automated-front/pom/tests/login.test.js:5:607) </pre><br> <h4 id="test-3" style="color: red;">3. Login with TestCafe on Todoist webpage - As a user I want to try to log in using an invalid password --tags {regression}</h4>
- <pre style="padding:15px;box-shadow: 6px 6px 6px 6px #00000033;border-radius: 10px;">TypeError: _loginPage.default.loginForm is not a function
-
-Browser: Chrome 98.0.4758.80 / macOS 10.15.7
-
-   27 |&#125);
-   28 |
-   29 |//2.2
-   30 |test(&quot;As a user I want to try to log in using an invalid password --tags &#123regression}&quot;,async t =&gt; {
-   31 |    await t.click(mainPage.loginLink);
- &gt; 32 |    await loginPage.loginForm(CREDENTIALS.STANDARD_USER.REAL_USERNAME,CREDENTIALS.FAKE_USER.FAKE_PASSWORD);
-   33 |
-   34 |    await t.expect(loginPage.labelError.innerText).eql(ERROR_MESSAGES.WRONG_PASSWORD);
-   35 |});
-   36 |
-   37 |//2.3 
-
-   at &lt;anonymous&gt; (/Users/jaime.contreras/Documents/Proyectos/Challenge Apprenticeship/Challenge-todoist-automated-front/pom/tests/login.test.js:32:21)
-   at asyncGeneratorStep (/Users/jaime.contreras/Documents/Proyectos/Challenge Apprenticeship/Challenge-todoist-automated-front/pom/tests/login.test.js:5:269)
-   at _next (/Users/jaime.contreras/Documents/Proyectos/Challenge Apprenticeship/Challenge-todoist-automated-front/pom/tests/login.test.js:5:607) </pre><br>
+      
     </div>
     <script>
       const modal = document.getElementById('myModal');
