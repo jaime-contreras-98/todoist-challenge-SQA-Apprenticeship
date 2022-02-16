@@ -2,7 +2,7 @@ Front-end automation challenge for Wizeline mentees. This project is for automat
 
 Test cases automated:
 
-Login
+Login.
 Add/delete tasks
 Add/delete projects
 Before running any of those suites mentiones before, you shall fill the .env file with your credentials and fake credentials
