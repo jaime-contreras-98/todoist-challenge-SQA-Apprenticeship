@@ -5,15 +5,16 @@ import mainPage from "../pages/main-page.js";
 import loginPage from "../pages/login-page.js";
 
 export const URL = {
-    BASE_URL: "https://todoist.com/"
+    BASE_URL: "https://todoist.com/",
 };
 
 export const CREDENTIALS = {
-    STANDARD_USER : {
+    STANDARD_USER: {
         REAL_USERNAME: process.env.FRONT_LOGIN_USER,
-        REAL_PASSWORD: process.env.FRONT_LOGIN_PASSWORD
+        REAL_PASSWORD: process.env.FRONT_LOGIN_PASSWORD,
+        EMPTY_PASSWORD: process.env.EMPTY_PASSWORD
     },
-    FAKE_USER : {
+    FAKE_USER: {
         FAKE_USERNAME: process.env.FRONT_LOGIN_FAKE_USER,
         FAKE_PASSWORD: process.env.FRONT_LOGIN_FAKE_PASSWORD
     }
@@ -22,51 +23,26 @@ export const CREDENTIALS = {
 export const ERROR_MESSAGES = {
     WRONG_USERNAME: "Invalid email address.",
     WRONG_PASSWORD: "Wrong email or password.",
-    BLANK_INPUTS:   "Blank password."
+    BLANK_INPUTS: "Blank password."
 };
 
 export const TODAY = {
-    TASKS : { 
-        TITLE:      "Title test ", 
-        DESCRIPTION:"Description test " 
+    TASKS: { 
+        TITLE: "Title test ", 
+        DESCRIPTION: "Description test " 
     },
-    PROJECTS : {
-        TITLE:      "Project test "
+    PROJECTS: {
+        TITLE: "Project test "
     }
 };
 
 export const DATES = {
-    TODAY:          "Today",
-    TOMORROW:       "Tomorrow"
+    TODAY: "Today",
+    TOMORROW: "Tomorrow"
 };
 
-export const ROLES = Role(`${URL.BASE_URL}`,async t=> { 
-    await t.click      (mainPage.loginLink);
-
-    switch(a){
-    case 1:
-        await t
-            .typeText   (loginPage.inputUser,CREDENTIALS.STANDARD_USER.REAL_USERNAME)
-            .typeText   (loginPage.inputPassword,CREDENTIALS.STANDARD_USER.REAL_PASSWORD);
-        break;
-    case 2:
-        await t
-            .typeText   (loginPage.inputUser,CREDENTIALS.FAKE_USER.FAKE_USERNAME)
-            .typeText   (loginPage.inputPassword,CREDENTIALS.STANDARD_USER.REAL_PASSWORD);
-        break;
-    case 3:
-        await t
-            .typeText   (loginPage.inputUser,CREDENTIALS.STANDARD_USER.REAL_USERNAME) 
-            .typeText   (loginPage.inputUser,CREDENTIALS.FAKE_USER.FAKE_PASSWORD);
-        break;
-    case 4:
-        await t.typeText   (loginPage.inputUser,CREDENTIALS.STANDARD_USER.REAL_USERNAME); 
-        break;
-    default:
-        console.log("Wrong option");
-        break;
-    }    
-    await t
-        .click      (loginPage.buttonLogin);
+export const MAIN_USER_ROLE = Role(`${URL.BASE_URL}`,async t=> {
+    await t.click(mainPage.loginLink); 
+    await loginPage.loginForm(1);
 });
     

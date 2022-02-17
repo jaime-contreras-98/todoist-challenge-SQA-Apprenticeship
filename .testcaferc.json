@@ -1,0 +1,7 @@
+{
+    "debugMode":false,
+    "speed":1,   
+    "selectorTimeout":8000,
+    "assertionTimeout":2000,
+    "pageLoadTimeout":1500
+}
