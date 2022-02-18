@@ -83,7 +83,7 @@ class TodayPage{
                 .rightClick (this.projectListElement)
                 .click      (this.deleteProjectButton)
                 .click      (this.confirmDeleteButton)
-                .wait       (1500);
+                .wait       (15000);
         }
     }
 }
