@@ -14,9 +14,7 @@ pipeline{
         }
         stage('test') {
             steps {
-                {
-                    sh "npm run ${params.suite}"
-                }
+                sh "npm run ${params.suite}"
             }
         }
     }    
