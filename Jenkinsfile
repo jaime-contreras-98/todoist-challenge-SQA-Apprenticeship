@@ -1,7 +1,7 @@
 pipeline{
     agent any
     tools {
-        nodejs 'node'
+        nodejs 'node installation'
     }
     parameters {
         choice choices: ['loginTests', 'notesTests', 'loginTestsHeadless' , 'smokeTests'], name: 'suite'
