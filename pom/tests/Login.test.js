@@ -15,7 +15,7 @@ fixture("Login with TestCafe on Todoist webpage")
 test("As a user I want to log in using my credentials --tags {smoke}",async t => { 
     await t.useRole(MAIN_USER_ROLE);
 
-    await t.expect(todayPage.todayLabel.innerText).eql(DATES.TODAY);
+    await t.expect(todayPage.todayLabel.innerText).contains(DATES.TODAY);
 }); 
 
 //2.1
