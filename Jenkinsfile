@@ -16,6 +16,13 @@ pipeline{
             steps {
                 sh "npm run ${params.suite}"
             }
+        } 
+        stage('report') {
+            post {
+                always {
+                    archiveArtifacts artifacts: 'tests-reports/login-tests-results.html', followSymlinks: false
+                }
+            }
         }
     }    
 }
