@@ -7,7 +7,8 @@
     "loginTests": "testcafe chrome pom/tests/login.test.js --reporter html:tests-reports/login-tests-results.html",
     "notesTests": "testcafe chrome pom/tests/notes.test.js --reporter html:tests-reports/notes-tests-results.html",
     "loginTestsHeadless": "testcafe firefox:headless,chrome:headless pom/tests/login.test.js --reporter html:tests-reports/login-headless-tests-results.html",
-    "smokeTests": "testcafe chrome pom/tests/ --test-grep 'smoke' --reporter html:tests-reports/smoke-tests-results.html"
+    "smokeTests": "testcafe chrome pom/tests/ --test-grep 'smoke'",
+    "regression": "testcafe chrome pom/tests/ --test-grep 'regression'"
   },
   "author": "Jaime Contreras",
   "license": "ISC",

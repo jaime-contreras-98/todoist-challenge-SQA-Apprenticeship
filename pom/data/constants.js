@@ -10,26 +10,25 @@ export const URL = {
 
 export const CREDENTIALS = {
     STANDARD_USER: {
-        REAL_USERNAME: process.env.FRONT_LOGIN_USER,
-        REAL_PASSWORD: process.env.FRONT_LOGIN_PASSWORD,
-        EMPTY_PASSWORD: process.env.EMPTY_PASSWORD
+        USERNAME: process.env.FRONT_LOGIN_USER,
+        PASSWORD: process.env.FRONT_LOGIN_PASSWORD,
     },
     FAKE_USER: {
-        FAKE_USERNAME: process.env.FRONT_LOGIN_FAKE_USER,
-        FAKE_PASSWORD: process.env.FRONT_LOGIN_FAKE_PASSWORD
+        USERNAME: process.env.FRONT_LOGIN_FAKE_USER,
+        PASSWORD: process.env.FRONT_LOGIN_FAKE_PASSWORD
     }
 };
 
 export const ERROR_MESSAGES = {
-    WRONG_USERNAME: "Invalid email address.",
-    WRONG_PASSWORD: "Wrong email or password.",
-    BLANK_INPUTS: "Blank password."
+    NO_PASSWORD: "Passwords must be at least 8 characters long.",
+    NO_EMAIL: "Please enter a valid email address.",
+    WRONG_CREDENTIALS: "Wrong email or password.",
 };
 
 export const TODAY = {
-    TASKS: { 
-        TITLE: "Title test ", 
-        DESCRIPTION: "Description test " 
+    TASKS: {
+        TITLE: "Title test ",
+        DESCRIPTION: "Description test "
     },
     PROJECTS: {
         TITLE: "Project test "
@@ -42,7 +41,7 @@ export const DATES = {
 };
 
 export const MAIN_USER_ROLE = Role(`${URL.BASE_URL}`,async t=> {
-    await t.click(mainPage.loginLink); 
-    await loginPage.loginForm(1);
+    await t.click(mainPage.loginFormLink);
+    await loginPage.loginForm(CREDENTIALS.STANDARD_USER.USERNAME,CREDENTIALS.STANDARD_USER.PASSWORD);
 });
-    
+

@@ -1,44 +1,24 @@
 import {Selector, t} from "testcafe";
-import {CREDENTIALS} from "../data/constants.js";
 
 class LoginPage{
-    
+
     constructor(){
-        this.inputUser      = Selector("#email");
-        this.inputPassword  = Selector("#password");
-        this.buttonLogin    = Selector("button").withText("Log in");
-        this.labelError     = Selector(".error_msg");
+        this.inputUser          = Selector("#labeled-input-1");
+        this.inputPassword      = Selector("#labeled-input-3");
+        this.buttonLogin        = Selector(".nFxHGeI.S7Jh9YX");
+        this.labelErrorEmail    = Selector("._2282cb83._087a8179");
+        this.labelErrorPassword = Selector(".jMjOg3K._2282cb83");
     }
 
-    async loginForm(test){
-        switch(test){
-        case 1:
-            await this.loginFields(CREDENTIALS.STANDARD_USER.REAL_USERNAME,CREDENTIALS.STANDARD_USER.REAL_PASSWORD);
-            break;
-        case 2:
-            await this.loginFields(CREDENTIALS.FAKE_USER.FAKE_USERNAME,CREDENTIALS.STANDARD_USER.REAL_PASSWORD);
-            break;
-        case 3:
-            await this.loginFields(CREDENTIALS.STANDARD_USER.REAL_USERNAME,CREDENTIALS.FAKE_USER.FAKE_PASSWORD);
-            break;
-        case 4:
-            await this.loginFields(CREDENTIALS.STANDARD_USER.REAL_USERNAME);
-            break;
-        default:
-            console.log("Choose a valid option..."); 
+    async loginForm(username,password){
+        if(username!=null){
+            await t.typeText(this.inputUser,username);
+        }
+        if(password!=null){
+            await t.typeText(this.inputPassword,password);
         }
 
         await t.click(this.buttonLogin);
-    }
-
-    async loginFields(username,password){
-        await t.typeText   (this.inputUser,username);
-
-        if(password!=undefined){
-            await t.typeText   (this.inputPassword,password);
-        }else{
-            console.log("This is undefined!");
-        } 
     }
 }
 
