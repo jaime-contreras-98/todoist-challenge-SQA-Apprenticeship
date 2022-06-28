@@ -41,7 +41,7 @@ test("As a user I want to try to log in without typing my email --tags {regressi
 });
 
 //2.3
-test("As a user I want to try to log in using my email using invalid credentials --tags {regression}",async t => {
+test("As a user I want to try to log in using my email using invalid credentials --tags {regressionn}",async t => {
     await loginPage.loginForm(CREDENTIALS.FAKE_USER.USERNAME,CREDENTIALS.FAKE_USER.PASSWORD);
 
     await t.expect(loginPage.labelErrorEmail.innerText).eql(ERROR_MESSAGES.WRONG_CREDENTIALS);
