@@ -14,11 +14,11 @@ pipeline{
         }
         stage('test') {
             steps {
-                sh "npm run ${params.suite} --reporter html:tests-reports/${params.suite}.html"
+                sh "npm run ${params.suite} --reporter html:tests-reports/login-tests-results.html"
             }
             post {
                 always {
-                    archiveArtifacts artifacts: "tests-reports/${params.suite}.html", followSymlinks: false
+                    archiveArtifacts artifacts: "tests-reports/login-tests-results.html", followSymlinks: false
                 }
             }
         }
