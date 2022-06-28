@@ -25,13 +25,14 @@ export const ERROR_MESSAGES = {
     WRONG_CREDENTIALS: "Wrong email or password.",
 };
 
-export const TODAY = {
+export const INBOX = {
+    TIMES: 0,
     TASKS: {
-        TITLE: "Title test ",
-        DESCRIPTION: "Description test "
+        TITLE: "Title test: ",
+        DESCRIPTION: "Description test: "
     },
     PROJECTS: {
-        TITLE: "Project test "
+        TITLE: "Project test: "
     }
 };
 
