@@ -4,7 +4,7 @@ pipeline{
         nodejs 'node installation'
     }
     parameters {
-        choice choices: ['loginTests', 'notesTests', 'loginTestsHeadless' , 'smokeTests'], name: 'suite'
+        choice choices: ['loginTests', 'projectsTests' ,'tasksTests', 'loginTestsHeadless' , 'smokeTests', 'regressionTests'], name: 'suite'
     }
     stages {
         stage('build') {
@@ -18,7 +18,7 @@ pipeline{
             }
             post {
                 always {
-                    archiveArtifacts artifacts: 'tests-reports/login-tests-results.html', followSymlinks: false
+                    archiveArtifacts artifacts: "tests-reports/${params.suite}.html", followSymlinks: false
                 }
             }
         }
