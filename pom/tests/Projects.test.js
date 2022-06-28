@@ -16,8 +16,14 @@ fixture("Add/delete projects with TestCafe on todoist.com")
         await todayPage.deleteProjects();
     });
 
-test("As a user I want to create a proyect using a special color, adding it to favorites --tags {smokee}",async () => {
-    await todayPage.createProject(2);
+test("As a user I want to create a proyect using a special color, adding it to favorites --tags {smoke}",async () => {
+    await todayPage.createProject(1);
 
     await todayPage.validateProject();
+});
+
+test("As a user I want to delete all my projects I created previously --tags {smoke}",async t=>{
+    await todayPage.deleteProjects();
+
+    await t.expect(todayPage.newFavProjectLabel.exists).ok();
 });

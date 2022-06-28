@@ -4,11 +4,12 @@
   "description": "Wizeline front-end and back-end automation challenge for mentees.",
   "main": "index.js",
   "scripts": {
-    "loginTests": "testcafe chrome pom/tests/login.test.js --reporter html:tests-reports/login-tests-results.html",
-    "notesTests": "testcafe chrome pom/tests/notes.test.js --reporter html:tests-reports/notes-tests-results.html",
-    "loginTestsHeadless": "testcafe firefox:headless,chrome:headless pom/tests/login.test.js --reporter html:tests-reports/login-headless-tests-results.html",
-    "smokeTests": "testcafe chrome pom/tests/ --test-grep 'smokee'",
-    "regression": "testcafe chrome pom/tests/ --test-grep 'regression'"
+    "loginTests": "testcafe chrome pom/tests/Login.test.js --reporter html:tests-reports/login-tests-results.html",
+    "projectsTests": "testcafe chrome pom/tests/Projects.test.js --reporter html:tests-reports/projects-tests-results.html",
+    "tasksTests": "testcafe chrome pom/tests/Tasks.test.js --reporter html:tests-reports/tasks-tests-results.html",
+    "loginTestsHeadless": "testcafe firefox:headless,chrome:headless pom/tests/Login.test.js --reporter html:tests-reports/login-headless-tests-results.html",
+    "smokeTests": "testcafe chrome pom/tests/ --test-grep 'smoke' --reporter html:tests-reports/smoke-tests-results.html",
+    "regressionTests": "testcafe chrome pom/tests/ --test-grep 'regression' --reporter html:tests-reports/regression-tests-results.html"
   },
   "author": "Jaime Contreras",
   "license": "ISC",

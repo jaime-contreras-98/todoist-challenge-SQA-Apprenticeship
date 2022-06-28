@@ -35,7 +35,7 @@ test("As a user I want to create 10 tasks in a row for today as due date --tags 
 });
 
 //7
-test("As a user I want to delete all my tasks I created previously --tags {smokee}",async t=>{
+test("As a user I want to delete all my tasks I created previously --tags {smoke}",async t=>{
     await todayPage.deleteTasks();
 
     await t.expect(todayPage.newFavProjectLabel.exists).ok();

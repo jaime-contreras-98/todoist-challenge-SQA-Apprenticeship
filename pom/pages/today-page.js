@@ -64,19 +64,19 @@ class TodayPage{
             const idProject = INBOX.PROJECTS.TITLE + nanoid() + " " + (i+1);
 
             await t
-                .click      (this.newProjectButton)
-                .typeText   (this.newProjectInput,idProject)
-                .click      (this.newProjectColorDropdown);
+                .click(this.newProjectButton)
+                .typeText(this.newProjectInput,idProject)
+                .click(this.newProjectColorDropdown);
 
             for(let i=0;i <= Math.floor((Math.random() * 100) % 20);i++){
                 await t.pressKey("down");
             }
 
             await t
-                .pressKey   ("enter")
-                .click      (this.newProjectFavToggle)
-                .click      (this.newProjectSaveButton)
-                .wait       (2500);
+                .pressKey("enter")
+                .click(this.newProjectFavToggle)
+                .click(this.newProjectSaveButton)
+                .wait(2500);
         }
     }
 
@@ -101,6 +101,16 @@ class TodayPage{
         }
     }
 
+    async deleteTasks(){
+        while(await this.tasksListElement.exists){
+            await t
+                .rightClick(this.tasksListElement)
+                .click(this.deleteTaskButton)
+                .click(this.confirmDeleteButton)
+                .wait(1500);
+        }
+    }
+
     async validateProject(){
         while(await this.projectListElement.exists){
             await t
@@ -109,16 +119,6 @@ class TodayPage{
                 .wait(1000)
                 .click(this.editProjectMenuButton)
                 .click(this.projectElementOptions)
-                .click(this.confirmDeleteButton)
-                .wait(1500);
-        }
-    }
-
-    async deleteTasks(){
-        while(await this.tasksListElement.exists){
-            await t
-                .rightClick(this.tasksListElement)
-                .click(this.deleteTaskButton)
                 .click(this.confirmDeleteButton)
                 .wait(1500);
         }
